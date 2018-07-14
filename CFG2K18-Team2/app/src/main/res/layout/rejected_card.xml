@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Elements of Programming"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:id="@+id/author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:text="Hrishikesh"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            />
+
+            <TextView
+                android:id="@+id/editionHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edition:"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:layout_below="@+id/author"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                />
+
+            <TextView
+                android:id="@+id/editionNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8"
+                android:layout_toRightOf="@+id/editionHeader"
+                android:layout_below="@+id/author"
+                android:layout_marginLeft="05dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="#000000" />
+            <TextView
+                android:id="@+id/CommentHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comment:"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:layout_below="@+id/editionHeader"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                />
+
+            <TextView
+                android:id="@+id/commentContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Not a good resource!!!"
+                android:layout_toRightOf="@+id/CommentHeader"
+                android:layout_below="@+id/editionNumber"
+                android:layout_marginLeft="05dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="#000000" />
+
+            <View
+                android:id="@+id/separator"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/commentContent"
+                android:layout_margin="10dp"
+                android:background="#000000"/>
+
+            <ImageView
+                android:id="@+id/play"
+                android:layout_width="60sp"
+                android:layout_height="60sp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/separator"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_menu_share"
+                />
+
+            <ImageView
+                android:id="@+id/downlaod"
+                android:layout_width="60sp"
+                android:layout_height="60sp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/separator"
+                android:layout_margin="10dp"
+                android:src="@mipmap/ic_launcher"/>
+
+
+
+        </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+</RelativeLayout>
