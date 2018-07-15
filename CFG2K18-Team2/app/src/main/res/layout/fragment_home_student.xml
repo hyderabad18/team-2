@@ -5,27 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <SearchView
+    <android.support.v7.widget.SearchView
         android:id="@+id/search"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:clickable="true"
-        android:background="@color/colorPrimary"
-        android:layout_margin="15dp"/>
-
-    <View
-        android:id="@+id/separator"
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:layout_margin="10dp"
-        android:background="#000"
-        android:layout_below="@+id/search"/>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvHomeStudent"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/separator"
-        android:layout_margin="15dp"/>
+        android:clickable="true" />
 
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/search" />
+    
 </RelativeLayout>

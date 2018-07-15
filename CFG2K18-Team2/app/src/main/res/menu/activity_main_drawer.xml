@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/upload"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Upload" />
         <item
             android:id="@+id/profile"
             android:icon="@drawable/ic_menu_camera"
@@ -11,18 +15,14 @@
             android:icon="@drawable/ic_menu_gallery"
             android:title="Approved" />
         <item
-            android:id="@+id/rejected"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Rejected" />
-        <item
             android:id="@+id/pending"
             android:icon="@drawable/ic_menu_manage"
             android:title="Pending" />
         <item
             android:id="@+id/signout"
             android:icon="@drawable/ic_menu_send"
-            android:title="Sign Out"
-            />
+            android:title="Sign Out" />
+
     </group>
 
 </menu>

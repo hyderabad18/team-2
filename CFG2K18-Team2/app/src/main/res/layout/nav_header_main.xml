@@ -16,7 +16,7 @@
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/headerimg"
         android:layout_width="99dp"
-        android:src="@drawable/ic_menu_send"
+        android:src="@drawable/ic_menu_share"
         android:layout_gravity="center"
         android:layout_height="99dp"
         android:scaleType="centerCrop" />

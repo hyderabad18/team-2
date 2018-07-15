@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="40dp"
+        android:hint="Name"
+        android:backgroundTint="#000"
+        android:textColorHint="#000"/>
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Phone"
+        android:backgroundTint="#000"
+        android:textColorHint="#000"
+        android:layout_below="@+id/name"/>
+    <EditText
+        android:id="@+id/emailtxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Email"
+        android:backgroundTint="#000"
+        android:textColorHint="#000"
+        android:layout_below="@+id/phone"/>
+
+    <EditText
+        android:id="@+id/Course"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Course"
+        android:backgroundTint="#000"
+        android:inputType="text"
+        android:textColorHint="#000"
+        android:layout_below="@+id/emailtxt"/>
+
+    <EditText
+        android:id="@+id/year"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Year"
+        android:layout_below="@+id/Course"
+        android:textColorHint="#000"
+        android:backgroundTint="#000"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/branch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Branch"
+        android:textColorHint="#000"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/year"
+        android:textColor="#000"
+        android:backgroundTint="#000"
+        android:inputType="number"/>
+
+    <Button
+        android:id="@+id/done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="done"
+        android:layout_below="@+id/branch"
+        android:layout_centerInParent="true"/>
+
+
+</RelativeLayout>

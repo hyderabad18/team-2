@@ -1,40 +1,12 @@
 package com.example.admin.cfg2k18_team2;
 
 /**
- * Created by admin on 7/14/2018.
+ * Created by admin on 7/15/2018.
  */
 
-public class ApprovedDefault
+public class BooksTags
 {
     String title,author,edition,newTags;
-    String url;
-    Long downloadcount;
-
-    public String getVolunteername() {
-        return volunteername;
-    }
-
-    public void setVolunteername(String volunteername) {
-        this.volunteername = volunteername;
-    }
-
-    String volunteername;
-
-    public Long getDownloadcount() {
-        return downloadcount;
-    }
-
-    public void setDownloadcount(Long downloadcount) {
-        this.downloadcount = downloadcount;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
 
     public String getTitle() {
         return title;

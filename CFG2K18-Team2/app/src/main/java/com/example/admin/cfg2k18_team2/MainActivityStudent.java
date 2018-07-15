@@ -18,7 +18,7 @@ public class MainActivityStudent extends AppCompatActivity implements BottomNavi
         setContentView(R.layout.activity_main);
 
         //loading the default fragment
-        loadFragment(new HomeFragment());
+       // loadFragment(new HomeFragment());
 
         //getting bottom navigation view and attaching the listener
         BottomNavigationView navigation = findViewById(R.id.navigation);
@@ -32,7 +32,7 @@ public class MainActivityStudent extends AppCompatActivity implements BottomNavi
 
         switch (item.getItemId()) {
             case R.id.home:
-                fragment = new HomeFragment();
+         //       fragment = new HomeFragment();
                 break;
 
             case R.id.profile:
@@ -44,7 +44,6 @@ public class MainActivityStudent extends AppCompatActivity implements BottomNavi
                 break;
 
         }
-
         return loadFragment(fragment);
     }
 

@@ -1,13 +1,12 @@
 package com.example.admin.cfg2k18_team2;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,32 +15,29 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.google.firebase.auth.FirebaseAuth;
-
-import static com.example.admin.cfg2k18_team2.R.id.signout;
-import static com.example.admin.cfg2k18_team2.R.id.upload;
-
-public class MainActivity extends AppCompatActivity
+public class AdminHomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
-    FirebaseAuth auth;
-    String key;
+    ViewPager vp;
+    TabLayout tb;
+    int gridposition;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        auth = FirebaseAuth.getInstance();
+        setContentView(R.layout.activity_admin_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        sharedPreferences= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        editor=sharedPreferences.edit();
-        if(sharedPreferences!=null){
-            key=sharedPreferences.getString("key",null);
-        }
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id .fab);
+        tb = (TabLayout) findViewById(R.id.tabs);
+        vp = (ViewPager) findViewById(R.id.vp);
+
+
+        this.addPages();
+
+        tb.setupWithViewPager(vp);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,7 +69,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.admin_home, menu);
         return true;
     }
 
@@ -98,41 +94,31 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.profile)
-        {
+        if (id == R.id.nav_camera) {
             // Handle the camera action
-            Intent in = new Intent(getApplicationContext(),VolunteerProfile.class);
-            finish();
-            startActivity(in);
-        } else if (id == R.id.approved) {
-            Intent in = new Intent(getApplicationContext(),Approved.class);
-            finish();
-            startActivity(in);
+        } else if (id == R.id.nav_gallery) {
 
-        }  else if (id == R.id.pending) {
-            Intent in = new Intent(getApplicationContext(),Pending.class);
-            finish();
-            startActivity(in);
-        }
-        else if (id == upload)
-        {
-            Intent in = new Intent(getApplicationContext(),VolunteerUpload.class);
-            finish();
-            startActivity(in);
+        } else if (id == R.id.nav_slideshow) {
 
-        }
-        else if (id == signout)
-        {
-            auth.signOut();
-            editor.clear();
-            editor.commit();
-            Intent in = new Intent(getApplicationContext(),VolunteerSignUp.class);
-            finish();
-            startActivity(in);
+        } else if (id == R.id.nav_manage) {
+
+        } else if (id == R.id.nav_share) {
+
+        } else if (id == R.id.nav_send) {
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public void addPages() {
+  FragmentAdapter fp = new FragmentAdapter(this.getSupportFragmentManager());
+        fp.addFragment(new NotificationsFroMStudents());
+        fp.addFragment(new NotififcationsFromVolunteers());
+
+     vp.setAdapter(fp);
+    }
+
 }

@@ -6,5 +6,7 @@ import android.support.v4.app.Fragment;
  * Created by admin on 7/14/2018.
  */
 
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment
+{
+
 }

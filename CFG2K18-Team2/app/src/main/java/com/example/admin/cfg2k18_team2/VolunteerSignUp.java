@@ -1,7 +1,9 @@
 package com.example.admin.cfg2k18_team2;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -31,7 +33,10 @@ public class VolunteerSignUp extends AppCompatActivity
     private FirebaseAuth auth;
     private boolean status = true;
 
-    DatabaseReference dref;
+    DatabaseReference dref, dref2;
+
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
 
     @Override
@@ -66,6 +71,17 @@ public class VolunteerSignUp extends AppCompatActivity
             public void onClick(View view) {
                 final String email = inputEmail.getText().toString().trim();
                 final String password = inputPassword.getText().toString().trim();
+                final String name = inputName.getText().toString().trim();
+                final String phone = inputPhone.getText().toString().trim();
+                final String skills = inputSkills.getText().toString().trim();
+
+
+
+                if(TextUtils.isEmpty(name) || TextUtils.isEmpty(phone) || TextUtils.isEmpty(skills))
+                {
+                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
@@ -82,7 +98,7 @@ public class VolunteerSignUp extends AppCompatActivity
                     return;
                 }
 
-                Toast.makeText(getApplicationContext(), "Creating an Account",Toast.LENGTH_LONG).show();
+            //    Toast.makeText(getApplicationContext(), "Creating an Account",Toast.LENGTH_LONG).show();
 
                 //create user
                 auth.createUserWithEmailAndPassword(email, password)
@@ -90,16 +106,31 @@ public class VolunteerSignUp extends AppCompatActivity
                         {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                Toast.makeText(getApplicationContext(), "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(getApplicationContext(), "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
                                 // If sign in fails, display a message to the user. If sign in succeeds
                                 // the auth state listener will be notified and logic to handle the
                                 // signed in user can be handled in the listener.
-                                if (!task.isSuccessful()) {
+                                if (!task.isSuccessful())
+                                {
                                     Toast.makeText(getApplicationContext(), "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();
-                                } else
-
+                                }
+                                else
                                 {
+                                    dref2 = dref.child("Volunteers");
+                                    sharedPreferences= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                                    editor=sharedPreferences.edit();
+                                    DatabaseReference dref3=dref2.push().getRef();
+                                    String key = dref3.getKey();
+                                    dref3.child("name").setValue(name);
+                                    dref3.child("email").setValue(email);
+                                    dref3.child("mobile").setValue(phone);
+                                    dref3.child("skills").push().setValue(skills);
+                                    dref3.child("status").setValue(1);
+                                    editor.putString("type","volunteer");
+                                    editor.putString("email",email);
+                                    editor.putString("key",key);
+                                    editor.commit();
                                     Intent in = new Intent(getApplicationContext(),VolunteerLogin.class);
                                     startActivity(in);
                                     finish();
